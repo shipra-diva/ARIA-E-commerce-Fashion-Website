@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 4.5 seconds baad automatic index.html par redirect ho jayega -->
+  <meta http-equiv="refresh" content="4.5;url=index.html">
+
+  <title>ARIA — Loading...</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #222222;
+      --text-color: #FFFFFF;
+      --gold-color: #f57c7ce2;
+      --track-color: rgba(255, 255, 255, 0.1);
+      --font-logo: 'Playfair Display', serif;
+      --font-body: 'Poppins', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      width: 100vw;
+      background-color: var(--bg-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-body);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Background image */
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("loading.png") center / cover no-repeat;
+      opacity: 0.45;
+      filter: brightness(0.65);
+      z-index: 0;
+    }
+
+    .loader-container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Brand Logo */
+    .brand-logo {
+      font-family: var(--font-logo);
+      font-size: 3rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      color: var(--text-color);
+      margin-bottom: 8px;
+      text-indent: 0.25em;
+    }
+
+    .brand-subtext {
+      font-size: 0.75rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold-color);
+      margin-bottom: 40px;
+    }
+
+    /* Progress Bar */
+    .progress-track {
+      width: 260px;
+      height: 3px;
+      background-color: var(--track-color);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background-color: var(--gold-color);
+      border-radius: 4px;
+      animation: fillProgress 4.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    /* Status Label */
+    .loading-status {
+      margin-top: 16px;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+    }
+
+    /* Progress Animation */
+    @keyframes fillProgress {
+      0% {
+        width: 0%;
+      }
+
+      50% {
+        width: 65%;
+      }
+
+      80% {
+        width: 85%;
+      }
+
+      100% {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="loader-container">
+    <h1 class="brand-logo">ARIA</h1>
+
+    <p class="brand-subtext">Luxury Collection</p>
+
+    <div class="progress-track">
+      <div class="progress-fill"></div>
+    </div>
+
+    <p class="loading-status">Preparing Your Experience...</p>
+  </div>
+
+</body>
+</html>
