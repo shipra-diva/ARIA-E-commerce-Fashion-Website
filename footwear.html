@@ -3,14 +3,253 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Footwear — ARIA</title>
-  <meta name="description" content="Shop footwear: heels, boots and pumps.">
+  <title>ARIA — Footwear Collection</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
+  <script src="darkmode.js"></script>
+
+  <style>
+    .footwear-hero {
+      position: relative;
+      min-height: 62vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background-image:
+        linear-gradient(0deg, rgba(42,20,15,0.1), rgba(42,20,15,0.1)),
+        url('https://i.pinimg.com/736x/12/14/c6/1214c6518a4d5febae5c02f06503fc7c.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      background-attachment: fixed;
+    }
+    .footwear-hero__overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        180deg,
+        rgba(74,14,24,0.68) 0%,
+        rgba(110,20,35,0.38) 45%,
+        rgba(42,20,15,0.78) 100%
+      );
+    }
+    .footwear-hero__content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      padding: 0 24px;
+      color: #fff;
+    }
+    .footwear-hero__eyebrow {
+      margin-bottom: 18px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+    }
+    .footwear-hero__heading {
+      margin: 0 0 20px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+    }
+    .footwear-hero__text {
+      margin: 0 auto;
+      max-width: 520px;
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.9);
+    }
+    @media (max-width: 760px) {
+      .footwear-hero { min-height: 46vh; background-attachment: scroll; }
+      .footwear-hero__eyebrow { font-size: 0.7rem; letter-spacing: 0.25em; }
+    }
+
+    .footwear-section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 55px 32px;
+    }
+    .footwear-section__header { text-align: center; margin-bottom: 30px; }
+    .footwear-section__eyebrow {
+      margin-bottom: 7px;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .footwear-section__heading {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(28px, 4vw, 38px);
+      color: var(--ink);
+    }
+    .footwear-section .arrivals__grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+    }
+    .footwear-section .product-card {
+      position: relative;
+      background: #fff;
+      border: 1px solid #eeeeee;
+      border-radius: 3px;
+      overflow: hidden;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .footwear-section .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0,0,0,.12);
+    }
+    .footwear-section .product-card__image-wrap {
+      position: relative;
+      width: 100%;
+      height: 430px;
+      overflow: hidden;
+      background: #f8f5f2;
+    }
+    .footwear-section .product-card__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform .45s ease;
+    }
+    .footwear-section .product-card:hover .product-card__image {
+      transform: scale(1.04);
+    }
+    .footwear-section .product-card__info { padding: 14px 14px 16px; background: #fff; }
+    .footwear-section .product-card__name {
+      margin: 0 0 7px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #282828;
+      line-height: 1.4;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .footwear-section .product-card__price {
+      margin: 0 0 7px;
+      color: #282828;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .footwear-section .star-rating {
+      margin-bottom: 12px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: #f4b400;
+    }
+    .footwear-section .btn-add-cart {
+      width: 100%;
+      min-height: 40px;
+      border: 1px solid var(--wine);
+      border-radius: 3px;
+      background: #fff;
+      color: var(--wine);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .4px;
+      cursor: pointer;
+      transition: background .2s ease, color .2s ease, transform .2s ease;
+    }
+    .footwear-section .btn-add-cart:hover {
+      background: var(--wine);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+    .footwear-section .btn-add-cart.added { background: var(--wine); color: #fff; }
+
+    @media (max-width: 1100px) {
+      .footwear-section .arrivals__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .footwear-section .product-card__image-wrap { height: 410px; }
+    }
+    @media (max-width: 760px) {
+      .footwear-section { padding: 45px 16px; }
+      .footwear-section .arrivals__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .footwear-section .product-card__image-wrap { height: 330px; }
+      .footwear-section .product-card__info { padding: 11px; }
+      .footwear-section .product-card__name { font-size: 12px; }
+      .footwear-section .product-card__price { font-size: 13px; }
+    }
+    @media (max-width: 430px) {
+      .footwear-section .product-card__image-wrap { height: 290px; }
+      .footwear-section .arrivals__grid { gap: 9px; }
+    }
+
+    .footwear-quote {
+      position: relative;
+      overflow: hidden;
+      padding: 90px 32px;
+      text-align: center;
+      background: linear-gradient(135deg, var(--wine) 0%, var(--wine-deep) 100%);
+    }
+    .footwear-quote::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        115deg,
+        rgba(230,200,115,0.06) 0 10px,
+        transparent 10px 22px
+      );
+      pointer-events: none;
+    }
+    .footwear-quote__inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+    .footwear-quote__mark {
+      display: block;
+      margin-bottom: 4px;
+      font-family: 'Playfair Display', serif;
+      font-size: 70px;
+      line-height: 1;
+      color: var(--gold-soft);
+    }
+    .footwear-quote__text {
+      margin: 0 0 26px;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(1.25rem, 2.6vw, 2rem);
+      line-height: 1.55;
+      color: #fff;
+    }
+    .footwear-quote__divider {
+      display: inline-block;
+      width: 70px;
+      height: 2px;
+      margin-bottom: 16px;
+      background: var(--gold);
+    }
+    .footwear-quote__attribution {
+      margin: 0;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+    }
+    @media (max-width: 760px) {
+      .footwear-quote { padding: 60px 20px; }
+      .footwear-quote__mark { font-size: 52px; }
+    }
+  </style>
 </head>
+
 <body>
+
   <header class="navbar">
     <div class="navbar__inner">
       <a href="index.html" class="navbar__logo">ARIA</a>
@@ -19,110 +258,92 @@
         <ul class="navbar__links">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="western.html" class="nav-link">Western</a></li>
-          <li><a href="ethnic.html" class="nav-link">Ethnic Wear</a></li>
-          <li><a href="accessories.html" class="nav-link">Accessories</a></li>
+          <li><a href="ethnic.html" class="nav-link">Ethnic</a></li>
+          <li><a href="index.html" class="nav-link">Accessories</a></li>
           <li><a href="footwear.html" class="nav-link is-active">Footwear</a></li>
           <li><a href="sale.html" class="nav-link">Sale</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>
-      <!-- account -->
-<a href="login.html" class="icon-link" aria-label="Account, log in or sign up">
-  <svg viewBox="0 0 24 24" class="icon" fill="none" stroke="currentColor" stroke-width="1.5">
-    <circle cx="12" cy="8" r="3.5"></circle>
-    <path d="M4.5 20c1.4-3.6 4.4-5.5 7.5-5.5s6.1 1.9 7.5 5.5"></path>
-  </svg>
-</a>
+
       <div class="navbar__icons">
-        <!-- search -->
-        <a href="search.html" class="icon-link" aria-label="Search">
+        <a href="#" class="icon-link" aria-label="Search">
           <svg viewBox="0 0 24 24" class="icon" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="11" cy="11" r="7"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
         </a>
-        <!-- wishlist -->
-        <a href="wishlist.html" class="icon-link" aria-label="Wishlist">
+
+        <a href="#" class="icon-link" aria-label="Wishlist">
           <svg viewBox="0 0 24 24" class="icon" fill="none" stroke="currentColor" stroke-width="1.5">
             <path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c2 0 3.4 1.1 4.2 2.4C10.8 6.1 12.2 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"></path>
           </svg>
-          <span class="icon-badge" data-wishlist-count>0</span>
         </a>
-        <!-- cart -->
-        <a href="cart.html" class="icon-link" aria-label="Cart">
+
+        <a href="cart.html" class="icon-link cart-nav-link" aria-label="Cart">
+          <span class="cart-badge" id="cartBadge">0</span>
           <svg viewBox="0 0 24 24" class="icon" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="9" cy="21" r="1"></circle>
             <circle cx="19" cy="21" r="1"></circle>
             <path d="M2.5 3h2l2.6 12.4a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 2-1.6L21.5 7H6"></path>
           </svg>
-          <span class="icon-badge" data-cart-count>0</span>
         </a>
-        <button type="button" class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
+
+        <a href="login.html" class="icon-link btn-login-nav" aria-label="Account Login">
+          <svg viewBox="0 0 24 24" class="icon" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span class="login-text">Login</span>
+        </a>
       </div>
     </div>
   </header>
-  <style>
-  .page-banner {
-  position: relative;
-  background-image:
-    linear-gradient(180deg, rgba(228, 213, 213, 0.35) 0%, rgba(228, 219, 219, 0.65) 100%),
-    url('https://i.pinimg.com/1200x/6d/d4/44/6dd4441b7293062252d064f5aeb136ea.jpg');
-  background-size: cover;
-  background-position: center 25%;
-  background-repeat: no-repeat;
-  padding: 130px 48px 100px;
-  text-align: center;
-}
-</style>
-  <section class="page-banner">
-    <div class="page-banner__inner">
-      <p class="page-banner__eyebrow">Footwear</p>
-      <h1 class="page-banner__heading">Footwear</h1>
-      <p class="page-banner__text">From evening heels to everyday boots — built on comfort, finished in leather.</p>
-      <nav class="breadcrumbs" aria-label="Breadcrumb">
-        <a href="index.html">Home</a>
-        <span>/</span>
-        <span aria-current="page">Footwear</span>
-      </nav>
+
+
+  <section class="footwear-hero">
+    <div class="footwear-hero__overlay"></div>
+    <div class="footwear-hero__content">
+      <p class="footwear-hero__eyebrow">Step In Style</p>
+      <h1 class="footwear-hero__heading">The Footwear Edit</h1>
+      <p class="footwear-hero__text">
+        From statement heels to everyday sneakers —
+        crafted comfort that carries you from morning to midnight.
+      </p>
     </div>
   </section>
-  <section class="arrivals shop-section" aria-labelledby="shop-heading">
-    <div class="filter-bar" data-filter-bar>
-      <div class="filter-bar__chips">
-        <button type="button" class="filter-chip is-active" data-filter-chip="All">All</button>
-        <button type="button" class="filter-chip" data-filter-chip="Heels">Heels</button>
-        <button type="button" class="filter-chip" data-filter-chip="Boots">Boots</button>
-        <button type="button" class="filter-chip" data-filter-chip="Flats">Flats</button>
-      </div>
-      <div class="filter-bar__meta">
-        <span class="filter-bar__count" data-filter-count>4 products</span>
-        <label class="filter-bar__sort">
-          Sort by
-          <select data-sort-select>
-            <option value="newest">Newest</option>
-            <option value="price-asc">Price: Low to High</option>
-            <option value="price-desc">Price: High to Low</option>
-            <option value="popular" selected>Most Popular</option>
-          </select>
-        </label>
-      </div>
+
+
+  <!-- HEELS -->
+  <section class="footwear-section" aria-labelledby="heels-heading">
+    <div class="footwear-section__header">
+      <p class="footwear-section__eyebrow">Western &amp; Traditional</p>
+      <h2 id="heels-heading" class="footwear-section__heading">Heels</h2>
     </div>
-    <div class="arrivals__grid " data-product-grid>
-      <article class="product-card" data-category="Heels" data-price="4499">
+
+    <div class="arrivals__grid">
+
+      <article class="product-card">
         <div class="product-card__image-wrap">
-          
-          <button type="button" class="btn-wishlist" aria-label="Add Ivory Lace Slingback Heels to wishlist">
-            <svg viewBox="0 0 24 24" class="icon" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c2 0 3.4 1.1 4.2 2.4C10.8 6.1 12.2 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"></path>
-            </svg>
-          </button>
-          <img src="https://i.pinimg.com/736x/96/61/55/9661556f6d09355deaca5e490100b36b.jpg" alt="Ivory lace slingback heels" class="product-card__image" loading="lazy">
+          <img src="https://i.pinimg.com/736x/4b/72/50/4b7250cda6ed9cde91987d1fbc362cf4.jpg" alt="Silver rhinestone stiletto heels" class="product-card__image" loading="lazy">
         </div>
         <div class="product-card__info">
-          <h3 class="product-card__name">Ivory Lace Slingback Heels</h3>
-          <p class="product-card__price">₹4,499</p>
+          <h3 class="product-card__name">Luna Silver Stilettos</h3>
+          <p class="product-card__price">₹3,499</p>
+          <div class="star-rating" aria-label="Rated 4 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://i.pinimg.com/736x/a9/38/0d/a9380dec973a6e77b2791ae7e60e9077.jpg" alt="Glossy red leather stiletto heels" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Roselle Heels</h3>
+          <p class="product-card__price">₹2,799</p>
           <div class="star-rating" aria-label="Rated 5 out of 5 stars">
             <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
           </div>
@@ -130,19 +351,69 @@
         </div>
       </article>
 
-      <article class="product-card" data-category="Boots" data-price="3799">
+      <article class="product-card">
         <div class="product-card__image-wrap">
-          
-          <button type="button" class="btn-wishlist" aria-label="Add Camel Suede Ankle Boots to wishlist">
-            <svg viewBox="0 0 24 24" class="icon" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c2 0 3.4 1.1 4.2 2.4C10.8 6.1 12.2 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"></path>
-            </svg>
-          </button>
-          <img src="https://i.pinimg.com/1200x/fa/e8/ca/fae8ca6666f456b4474a944741d5851f.jpg" alt="Camel suede ankle boots" class="product-card__image" loading="lazy">
+          <img src="https://i.pinimg.com/736x/a1/57/ed/a157ed4348fb5930b49b929b4c92d71a.jpg" alt="Ivory pointy toe slip-on heels" class="product-card__image" loading="lazy">
         </div>
         <div class="product-card__info">
-          <h3 class="product-card__name">Camel Suede Ankle Boots</h3>
-          <p class="product-card__price">₹3,799</p>
+          <h3 class="product-card__name">Seraphine Heels</h3>
+          <p class="product-card__price">₹2,999</p>
+          <div class="star-rating" aria-label="Rated 4 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://i.pinimg.com/736x/27/72/85/2772854f95b1d63ec58e6bc27730a3e2.jpg" alt="Cross strap stiletto heels" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Ocean Strap Heels</h3>
+          <p class="product-card__price">₹3,199</p>
+          <div class="star-rating" aria-label="Rated 4 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://i.pinimg.com/1200x/3a/90/48/3a90485e889990909145b3783056b3ca.jpg" alt="Blue embroidered Punjabi jutti heels" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Blush Flower Heels</h3>
+          <p class="product-card__price">₹1,899</p>
+          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span><span>&#9734;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://i.pinimg.com/736x/23/0e/84/230e84ce8eb67533b3eda76d7a24f8d8.jpg" alt="Mustard embroidered traditional jutti heels" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Ivory Pointed Heels</h3>
+          <p class="product-card__price">₹4,299</p>
+          <div class="star-rating" aria-label="Rated 4 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://i.pinimg.com/736x/88/b5/53/88b553c64c2378fc25cb1ac9a4d39362.jpg" alt="Black traditional khussa heels" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Leopard Slingback Heels</h3>
+          <p class="product-card__price">₹4,549</p>
           <div class="star-rating" aria-label="Rated 5 out of 5 stars">
             <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
           </div>
@@ -150,18 +421,45 @@
         </div>
       </article>
 
-      <article class="product-card" data-category="Heels" data-price="4199">
+      <article class="product-card">
         <div class="product-card__image-wrap">
-          
-          <button type="button" class="btn-wishlist" aria-label="Add Noir Patent Pumps to wishlist">
-            <svg viewBox="0 0 24 24" class="icon" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c2 0 3.4 1.1 4.2 2.4C10.8 6.1 12.2 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"></path>
-            </svg>
-          </button>
-          <img src="https://i.pinimg.com/1200x/78/c6/78/78c678afb2bb5668013dafe1c20a5861.jpg" alt="Noir patent pumps" class="product-card__image" loading="lazy">
+          <img src="https://i.pinimg.com/736x/54/8b/7b/548b7ba1916867d8581aeb136e46616d.jpg" alt="Gold metallic strappy block heel sandals" class="product-card__image" loading="lazy">
         </div>
         <div class="product-card__info">
-          <h3 class="product-card__name">Noir Patent Pumps</h3>
+          <h3 class="product-card__name">White Platform Heels</h3>
+          <p class="product-card__price">₹4,699</p>
+          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+  
+
+
+        <article class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://i.pinimg.com/736x/6b/cb/4c/6bcb4c6198cbcfce0376dbe1f989ee64.jpg" alt="Gold metallic strappy block heel sandals" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Butterfly Embellished Heels</h3>
+          <p class="product-card__price">₹5,299</p>
+          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+  
+
+        <article class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://i.pinimg.com/736x/43/d8/9b/43d89b3017fa2e0a85bc42e7707b71fb.jpg" alt="Gold metallic strappy block heel sandals" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Classic Black Pumps</h3>
           <p class="product-card__price">₹4,199</p>
           <div class="star-rating" aria-label="Rated 5 out of 5 stars">
             <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
@@ -170,189 +468,322 @@
         </div>
       </article>
 
-      <article class="product-card" data-category="Flats" data-price="2599">
+            <article class="product-card">
         <div class="product-card__image-wrap">
-          
-          <button type="button" class="btn-wishlist" aria-label="Add Blush Suede Ballet Flats to wishlist">
-            <svg viewBox="0 0 24 24" class="icon" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c2 0 3.4 1.1 4.2 2.4C10.8 6.1 12.2 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"></path>
-            </svg>
-          </button>
-          <img src="https://i.pinimg.com/736x/2f/c6/73/2fc6738114e534f7d2d95fcbeb5255bc.jpg" alt="Blush suede ballet flats" class="product-card__image" loading="lazy">
+          <img src="https://i.pinimg.com/736x/e1/b9/a2/e1b9a24a7bb5f4c1e1467cf034cbe9da.jpg" alt="Gold metallic strappy block heel sandals" class="product-card__image" loading="lazy">
         </div>
         <div class="product-card__info">
-          <h3 class="product-card__name">Blush Suede Ballet Flats</h3>
-          <p class="product-card__price">₹2,599</p>
+          <h3 class="product-card__name">YSL Rouge Heels</h3>
+          <p class="product-card__price">₹6,999</p>
+          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+                  <article class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://i.pinimg.com/736x/3d/c6/86/3dc686d7e70254557d0a0f85635fdd3b.jpg" alt="Gold metallic strappy block heel sandals" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Mocha Brown Heels</h3>
+          <p class="product-card__price">₹3,999</p>
           <div class="star-rating" aria-label="Rated 5 out of 5 stars">
             <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
           </div>
           <button type="button" class="btn-add-cart">Add to Cart</button>
         </div>
       </article>
-      <article class="product-card" data-category="Flats" data-price="2599">
-        <div class="product-card__image-wrap">
-          
-          <button type="button" class="btn-wishlist" aria-label="Add Blush Suede Ballet Flats to wishlist">
-            <svg viewBox="0 0 24 24" class="icon" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c2 0 3.4 1.1 4.2 2.4C10.8 6.1 12.2 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"></path>
-            </svg>
-          </button>
-          <img src="https://i.pinimg.com/1200x/7f/95/c8/7f95c88ae1ebd4ed1d2b29ca01612e14.jpg" alt="Blush suede ballet flats" class="product-card__image" loading="lazy">
-        </div>
-        <div class="product-card__info">
-          <h3 class="product-card__name">Blush Suede Ballet Flats</h3>
-          <p class="product-card__price">₹2,599</p>
-          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
-            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
-          </div>
-          <button type="button" class="btn-add-cart">Add to Cart</button>
-        </div>
-      </article>
-      <article class="product-card" data-category="Flats" data-price="2599">
-        <div class="product-card__image-wrap">
-          
-          <button type="button" class="btn-wishlist" aria-label="Add Blush Suede Ballet Flats to wishlist">
-            <svg viewBox="0 0 24 24" class="icon" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c2 0 3.4 1.1 4.2 2.4C10.8 6.1 12.2 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"></path>
-            </svg>
-          </button>
-          <img src="https://i.pinimg.com/1200x/b3/6e/43/b36e43703b3589ea672bf8f9e8acabdf.jpg" alt="Blush suede ballet flats" class="product-card__image" loading="lazy">
-        </div>
-        <div class="product-card__info">
-          <h3 class="product-card__name">Blush Suede Ballet Flats</h3>
-          <p class="product-card__price">₹2,599</p>
-          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
-            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
-          </div>
-          <button type="button" class="btn-add-cart">Add to Cart</button>
-        </div>
-      </article>
-      <article class="product-card" data-category="Flats" data-price="2599">
-        <div class="product-card__image-wrap">
-          
-          <button type="button" class="btn-wishlist" aria-label="Add Blush Suede Ballet Flats to wishlist">
-            <svg viewBox="0 0 24 24" class="icon" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c2 0 3.4 1.1 4.2 2.4C10.8 6.1 12.2 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"></path>
-            </svg>
-          </button>
-          <img src="https://i.pinimg.com/1200x/f6/6b/2f/f66b2f199f348f23d26730f75e940eeb.jpg" alt="Blush suede ballet flats" class="product-card__image" loading="lazy">
-        </div>
-        <div class="product-card__info">
-          <h3 class="product-card__name">Blush Suede Ballet Flats</h3>
-          <p class="product-card__price">₹2,599</p>
-          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
-            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
-          </div>
-          <button type="button" class="btn-add-cart">Add to Cart</button>
-        </div>
-      </article>
-      <article class="product-card" data-category="Flats" data-price="2599">
-        <div class="product-card__image-wrap">
-          
-          <button type="button" class="btn-wishlist" aria-label="Add Blush Suede Ballet Flats to wishlist">
-            <svg viewBox="0 0 24 24" class="icon" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c2 0 3.4 1.1 4.2 2.4C10.8 6.1 12.2 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"></path>
-            </svg>
-          </button>
-          <img src="https://i.pinimg.com/736x/9b/66/c2/9b66c2b5278aa2a201c34abde716846b.jpg" alt="Blush suede ballet flats" class="product-card__image" loading="lazy">
-        </div>
-        <div class="product-card__info">
-          <h3 class="product-card__name">Blush Suede Ballet Flats</h3>
-          <p class="product-card__price">₹2,599</p>
-          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
-            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
-          </div>
-          <button type="button" class="btn-add-cart">Add to Cart</button>
-        </div>
-      </article>
-      <article class="product-card" data-category="Flats" data-price="2599">
-        <div class="product-card__image-wrap">
-          
-          <button type="button" class="btn-wishlist" aria-label="Add Blush Suede Ballet Flats to wishlist">
-            <svg viewBox="0 0 24 24" class="icon" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c2 0 3.4 1.1 4.2 2.4C10.8 6.1 12.2 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"></path>
-            </svg>
-          </button>
-          <img src="https://i.pinimg.com/1200x/7b/63/27/7b63276aab08bf716be35d9ef22ceab7.jpg" alt="Blush suede ballet flats" class="product-card__image" loading="lazy">
-        </div>
-        <div class="product-card__info">
-          <h3 class="product-card__name">Blush Suede Ballet Flats</h3>
-          <p class="product-card__price">₹2,599</p>
-          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
-            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
-          </div>
-          <button type="button" class="btn-add-cart">Add to Cart</button>
-        </div>
-      </article>
-      <article class="product-card" data-category="Flats" data-price="2599">
-        <div class="product-card__image-wrap">
-          
-          <button type="button" class="btn-wishlist" aria-label="Add Blush Suede Ballet Flats to wishlist">
-            <svg viewBox="0 0 24 24" class="icon" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c2 0 3.4 1.1 4.2 2.4C10.8 6.1 12.2 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"></path>
-            </svg>
-          </button>
-          <img src="https://i.pinimg.com/1200x/c5/0d/51/c50d513da6eb20e833b9af1863ecd7a0.jpg" alt="Blush suede ballet flats" class="product-card__image" loading="lazy">
-        </div>
-        <div class="product-card__info">
-          <h3 class="product-card__name">Blush Suede Ballet Flats</h3>
-          <p class="product-card__price">₹2,599</p>
-          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
-            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
-          </div>
-          <button type="button" class="btn-add-cart">Add to Cart</button>
-        </div>
-      </article>
-      <article class="product-card" data-category="Flats" data-price="2599">
-        <div class="product-card__image-wrap">
-          
-          <button type="button" class="btn-wishlist" aria-label="Add Blush Suede Ballet Flats to wishlist">
-            <svg viewBox="0 0 24 24" class="icon" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c2 0 3.4 1.1 4.2 2.4C10.8 6.1 12.2 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"></path>
-            </svg>
-          </button>
-          <img src="https://i.pinimg.com/1200x/0d/cd/51/0dcd51bf8641fb4271ba0b57014bb976.jpg" alt="Blush suede ballet flats" class="product-card__image" loading="lazy">
-        </div>
-        <div class="product-card__info">
-          <h3 class="product-card__name">Blush Suede Ballet Flats</h3>
-          <p class="product-card__price">₹2,599</p>
-          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
-            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
-          </div>
-          <button type="button" class="btn-add-cart">Add to Cart</button>
-        </div>
-      </article>
-      <article class="product-card" data-category="Flats" data-price="2599">
-        <div class="product-card__image-wrap">
-          
-          <button type="button" class="btn-wishlist" aria-label="Add Blush Suede Ballet Flats to wishlist">
-            <svg viewBox="0 0 24 24" class="icon" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c2 0 3.4 1.1 4.2 2.4C10.8 6.1 12.2 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"></path>
-            </svg>
-          </button>
-          <img src="https://i.pinimg.com/1200x/10/af/8a/10af8afdb30249bc1679f3b21b1d166a.jpg" alt="Blush suede ballet flats" class="product-card__image" loading="lazy">
-        </div>
-        <div class="product-card__info">
-          <h3 class="product-card__name">Blush Suede Ballet Flats</h3>
-          <p class="product-card__price">₹2,599</p>
-          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
-            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
-          </div>
-          <button type="button" class="btn-add-cart">Add to Cart</button>
-        </div>
-      </article>
+
+
+
     </div>
-    <p class="filter-empty" data-filter-empty hidden>No products match this filter — try “All” or a different category.</p>
   </section>
+
+    </div>
+  </section>
+  <!-- BOOTS -->
+  <section class="footwear-section" aria-labelledby="boots-heading">
+    <div class="footwear-section__header">
+      <p class="footwear-section__eyebrow">Cold Weather Edit</p>
+      <h2 id="boots-heading" class="footwear-section__heading">Boots</h2>
+    </div>
+
+    <div class="arrivals__grid">
+
+      <article class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://i.pinimg.com/736x/0a/e7/08/0ae708488bef3c0e3d1466330a46c431.jpg" alt="Tan leather strap ankle boots" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Noir Leather Boots</h3>
+          <p class="product-card__price">₹7,499</p>
+          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://i.pinimg.com/736x/3d/7f/cb/3d7fcb304b0515846adfb5b86d2cbdc9.jpg" alt="Retro minimalist flat ankle boots" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Midnight Buckle Boots</h3>
+          <p class="product-card__price">₹6,299</p>
+          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://i.pinimg.com/736x/7c/b1/14/7cb1143c873f55db83cf54513a79feec.jpg" alt="Black leather buckle ankle boots" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Ivory Luxe Ankle Boots</h3>
+          <p class="product-card__price">₹4,899</p>
+          <div class="star-rating" aria-label="Rated 4 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://i.pinimg.com/1200x/42/b6/ec/42b6ec0d193a4548823e62b55258745b.jpg" alt="Tan suede knee high boots" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Espresso Knee-High Boots</h3>
+          <p class="product-card__price">₹8,999</p>
+          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://i.pinimg.com/1200x/95/72/55/957255ca2783d041c1d314f19a256004.jpg" alt="All black chelsea boots" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Burgundy Patent Boots</h3>
+          <p class="product-card__price">₹7,999</p>
+          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://i.pinimg.com/1200x/0d/cd/51/0dcd51bf8641fb4271ba0b57014bb976.jpg" alt="Brown chelsea boot" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Ruby Lace-Up Boots</h3>
+          <p class="product-card__price">₹5,799</p>
+          <div class="star-rating" aria-label="Rated 4 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+
+           <article class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://i.pinimg.com/1200x/15/b0/cc/15b0cc2a1e1ffe8999f10109aef11d57.jpg" alt="Brown chelsea boot" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Black Glitter Boots</h3>
+          <p class="product-card__price">₹7,799</p>
+          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+           <article class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://i.pinimg.com/736x/e0/8c/c6/e08cc6c05f7043c4991b16b9e03ea625.jpg" alt="Brown chelsea boot" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Mocha Lace-Up Boots</h3>
+          <p class="product-card__price">₹8,499</p>
+          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+
+    </div>
+  </section>
+
+
+  <!-- SNEAKERS -->
+  <section class="footwear-section" aria-labelledby="sneakers-heading">
+    <div class="footwear-section__header">
+      <p class="footwear-section__eyebrow">Everyday Comfort</p>
+      <h2 id="sneakers-heading" class="footwear-section__heading">Sneakers</h2>
+    </div>
+
+    <div class="arrivals__grid">
+
+      <article class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://i.pinimg.com/736x/27/1b/51/271b515ef11f3262c6388b6fee2918ca.jpg" alt="Classic white sneakers for women" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Cocoa Classic Sneakers</h3>
+          <p class="product-card__price">₹4,999</p>
+          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://i.pinimg.com/736x/64/57/76/6457767b5a903c36aea9474509dcfabd.jpg" alt="Slip-on arch support sneakers" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Burgundy Retro Sneakers</h3>
+          <p class="product-card__price">₹4,499</p>
+          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://i.pinimg.com/1200x/a0/fc/95/a0fc95fcd5c1c82c87f083f35d5c1e8b.jpg" alt="Leather stitched lace-free sneakers" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Ivory Canvas High-Tops</h3>
+          <p class="product-card__price">₹4,799</p>
+          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://i.pinimg.com/736x/0a/6d/b8/0a6db80c867427696e014ab1a6fa73b5.jpg" alt="Soft pastel pink sneakers" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Forest Green Street Sneakers</h3>
+          <p class="product-card__price">₹4,999</p>
+          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://i.pinimg.com/736x/5b/79/15/5b7915e69dd43ba826c396891d151b4c.jpg" alt="Multicolor pastel sneakers" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Burgundy Vintage Sneakers</h3>
+          <p class="product-card__price">₹4,699</p>
+          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://i.pinimg.com/736x/f8/b4/97/f8b4977e7427a50fb2700c756aa7babe.jpg" alt="Platform chunky sneakers for women" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Cloud Runner Sneakers</h3>
+          <p class="product-card__price">₹5,499</p>
+          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+           <article class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://i.pinimg.com/736x/c5/37/ee/c537ee43cdcc7126f21f261f08993655.jpg" alt="Platform chunky sneakers for women" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Midnight Chunky Sneakers</h3>
+          <p class="product-card__price">₹5,299</p>
+          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+           <article class="product-card">
+        <div class="product-card__image-wrap">
+          <img src="https://i.pinimg.com/736x/b1/7c/95/b17c958ebfc8cfe73df8ebe4c30b451f.jpg" alt="Platform chunky sneakers for women" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Ice Blue Platform Sneakers</h3>
+          <p class="product-card__price">₹4,999</p>
+          <div class="star-rating" aria-label="Rated 4 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- QUOTE -->
+  <section class="footwear-quote" aria-label="Brand quote">
+    <div class="footwear-quote__inner">
+      <span class="footwear-quote__mark">&#8220;</span>
+      <p class="footwear-quote__text">
+        Give a woman the right shoes, and she can conquer the world —
+        one confident step at a time.
+      </p>
+      <span class="footwear-quote__divider"></span>
+      <p class="footwear-quote__attribution">The ARIA Footwear Edit</p>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
   <footer class="site-footer">
+
     <div class="footer__newsletter">
       <div class="footer__newsletter-inner">
         <div class="footer__newsletter-text">
           <p class="footer__eyebrow">Stay in the Loop</p>
           <h2 class="footer__newsletter-heading">Join the ARIA List</h2>
-          <p class="footer__newsletter-copy">New arrivals, private sales, and styling notes — delivered to your inbox, nothing else.</p>
+          <p class="footer__newsletter-copy">
+            New arrivals, private sales, and styling notes —
+            delivered to your inbox, nothing else.
+          </p>
         </div>
-        <form class="footer__newsletter-form" aria-label="Newsletter signup" data-newsletter-form>
+
+        <form class="footer__newsletter-form" aria-label="Newsletter signup">
           <label for="footer-email" class="visually-hidden">Email address</label>
           <input type="email" id="footer-email" name="email" placeholder="Enter your email" required>
           <button type="submit" class="btn-gold">Subscribe</button>
@@ -361,9 +792,15 @@
     </div>
 
     <div class="footer__main">
+
       <div class="footer__col footer__col--brand">
         <a href="index.html" class="footer__logo">ARIA</a>
-        <p class="footer__brand-copy">Considered fashion for the everyday. Crafted in small runs, designed to last beyond the season.</p>
+        <p class="footer__brand-copy">
+          Considered fashion for the everyday.
+          Crafted in small runs, designed to last
+          beyond the season.
+        </p>
+
         <div class="footer__socials">
           <a href="#" class="social-link" aria-label="Instagram">
             <svg viewBox="0 0 24 24" class="icon" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -389,31 +826,34 @@
       <nav class="footer__col" aria-label="Shop">
         <h3 class="footer__col-title">Shop</h3>
         <ul class="footer__links">
+          <li><a href="index.html" class="footer-link">Women</a></li>
           <li><a href="western.html" class="footer-link">Western</a></li>
-          <li><a href="ethnic.html" class="footer-link">Ethnic Wear</a></li>
           <li><a href="accessories.html" class="footer-link">Accessories</a></li>
           <li><a href="footwear.html" class="footer-link">Footwear</a></li>
+          <li><a href="index.html" class="footer-link">New Arrivals</a></li>
           <li><a href="sale.html" class="footer-link">Sale</a></li>
+          
         </ul>
       </nav>
 
       <nav class="footer__col" aria-label="Help">
         <h3 class="footer__col-title">Help</h3>
         <ul class="footer__links">
-          <li><a href="contact.html" class="footer-link">Contact Us</a></li>
-          <li><a href="cart.html" class="footer-link">Your Cart</a></li>
-          <li><a href="wishlist.html" class="footer-link">Your Wishlist</a></li>
-          <li><a href="search.html" class="footer-link">Search</a></li>
+          <li><a href="#" class="footer-link">Contact Us</a></li>
+          <li><a href="#" class="footer-link">Shipping &amp; Returns</a></li>
+          <li><a href="#" class="footer-link">Size Guide</a></li>
+          <li><a href="#" class="footer-link">FAQs</a></li>
+          <li><a href="#" class="footer-link">Track Order</a></li>
         </ul>
       </nav>
 
       <nav class="footer__col" aria-label="About">
         <h3 class="footer__col-title">About</h3>
         <ul class="footer__links">
-          <li><a href="index.html" class="footer-link">Our Story</a></li>
-          <li><a href="index.html" class="footer-link">Sustainability</a></li>
-          <li><a href="contact.html" class="footer-link">Careers</a></li>
-          <li><a href="contact.html" class="footer-link">Press</a></li>
+          <li><a href="#" class="footer-link">Our Story</a></li>
+          <li><a href="#" class="footer-link">Sustainability</a></li>
+          <li><a href="#" class="footer-link">Careers</a></li>
+          <li><a href="#" class="footer-link">Press</a></li>
         </ul>
       </nav>
 
@@ -426,6 +866,7 @@
         </address>
         <a href="mailto:hello@aria.com" class="footer-link footer__email">hello@aria.com</a>
       </div>
+
     </div>
 
     <div class="footer__bottom">
@@ -436,8 +877,97 @@
         <li><a href="#" class="footer-link footer-link--small">Cookie Settings</a></li>
       </ul>
     </div>
+
   </footer>
-  <div class="toast" data-toast></div>
-  <script src="site.js"></script>
+
+
+  <script>
+    (function () {
+      const CART_KEY = "ariaCart";
+
+      function getCart() {
+        try {
+          return JSON.parse(localStorage.getItem(CART_KEY)) || [];
+        } catch (error) {
+          return [];
+        }
+      }
+
+      function saveCart(cart) {
+        localStorage.setItem(CART_KEY, JSON.stringify(cart));
+      }
+
+      function updateCartBadge() {
+        const badge = document.getElementById("cartBadge");
+        if (!badge) return;
+
+        const cart = getCart();
+        const count = cart.reduce(function (total, item) {
+          return total + (Number(item.quantity) || 0);
+        }, 0);
+
+        badge.textContent = count;
+
+        if (count > 0) {
+          badge.classList.add("is-visible");
+        } else {
+          badge.classList.remove("is-visible");
+        }
+      }
+
+      const buttons = document.querySelectorAll(".btn-add-cart");
+
+      buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          const card = button.closest(".product-card");
+          if (!card) return;
+
+          const image = card.querySelector(".product-card__image");
+          const name = card.querySelector(".product-card__name");
+          const priceElement = card.querySelector(".product-card__price");
+
+          if (!image || !name || !priceElement) return;
+
+          const productName = name.textContent.trim();
+          const price = Number(priceElement.textContent.replace(/[^0-9.]/g, ""));
+          const productId = productName.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+
+          const product = {
+            id: productId,
+            name: productName,
+            price: price,
+            image: image.src,
+            quantity: 1
+          };
+
+          const cart = getCart();
+          const existing = cart.find(function (item) {
+            return item.id === product.id;
+          });
+
+          if (existing) {
+            existing.quantity += 1;
+          } else {
+            cart.push(product);
+          }
+
+          saveCart(cart);
+          updateCartBadge();
+
+          button.textContent = "Added ✓";
+          button.classList.add("added");
+
+          setTimeout(function () {
+            button.textContent = "Add to Cart";
+            button.classList.remove("added");
+          }, 1000);
+        });
+      });
+
+      updateCartBadge();
+    })();
+  </script>
+<script src="wishlist.js"></script>
+<script src="search.js"></script>
 </body>
 </html>
