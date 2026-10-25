@@ -8,7 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="accessories.css">
+  <script src="darkmode.js"></script>
 </head>
 <body>
   <header class="navbar">
@@ -63,19 +64,6 @@
       </div>
     </div>
   </header>
-  <style>
-  .page-banner {
-  position: relative;
-  background-image:
-    linear-gradient(180deg,rgba(228, 213, 213, 0.35) 0%, rgba(228, 219, 219, 0.65) 100%),
-    url('accessories_banner.jpeg');
-  background-size: cover;
-  background-position: center 25%;
-  background-repeat: no-repeat;
-  padding: 130px 48px 100px;
-  text-align: center;
-}
-</style>
   <section class="page-banner">
     <div class="page-banner__inner">
       <p class="page-banner__eyebrow">Accessories</p>
@@ -89,27 +77,9 @@
     </div>
   </section>
   <section class="arrivals shop-section" aria-labelledby="shop-heading">
-    <div class="filter-bar" data-filter-bar>
-      <div class="filter-bar__chips">
-        <button type="button" class="filter-chip is-active" data-filter-chip="All">All</button>
-        <button type="button" class="filter-chip" data-filter-chip="Bags">Bags</button>
-        <button type="button" class="filter-chip" data-filter-chip="Jhumka">Jhumka</button>
-        <button type="button" class="filter-chip" data-filter-chip="Eyewear">Eyewear</button>
-        <button type="button" class="filter-chip" data-filter-chip="Belts">Belts</button>
-      </div>
-      <div class="filter-bar__meta">
-        <span class="filter-bar__count" data-filter-count>4 products</span>
-        <label class="filter-bar__sort">
-          Sort by
-          <select data-sort-select>
-            <option value="newest">Newest</option>
-            <option value="price-asc">Price: Low to High</option>
-            <option value="price-desc">Price: High to Low</option>
-            <option value="popular" selected>Most Popular</option>
-          </select>
-        </label>
-      </div>
-    </div>
+  
+    
+    
     <div class="arrivals__grid " data-product-grid>
       <article class="product-card" data-category="Bags" data-price="3999">
         <div class="product-card__image-wrap">
@@ -119,18 +89,17 @@
               <path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c2 0 3.4 1.1 4.2 2.4C10.8 6.1 12.2 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"></path>
             </svg>
           </button>
-          <img src="https://i.pinimg.com/1200x/b3/be/db/b3bedbf911527ee0e0583a4531eb7b23.jpg" alt="Luna metallic handbag" class="product-card__image" loading="lazy">
+          <img src="https://i.pinimg.com/736x/60/20/68/602068c076c9138ba97f02c3cc2f4367.jpg" alt="Luna metallic handbag" class="product-card__image" loading="lazy">
         </div>
         <div class="product-card__info">
-          <h3 class="product-card__name">Indigo Bloom Shoulder Bag</h3>
-          <p class="product-card__price">₹3,999</p>
+          <h3 class="product-card__name">Indigo Luxe Shoulder Bag</h3>
+          <p class="product-card__price">₹5,999</p>
           <div class="star-rating" aria-label="Rated 5 out of 5 stars">
             <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
           </div>
           <button type="button" class="btn-add-cart">Add to Cart</button>
         </div>
       </article>
-
       <article class="product-card" data-category="Eyewear" data-price="1999">
         <div class="product-card__image-wrap">
           
@@ -150,6 +119,83 @@
           <button type="button" class="btn-add-cart">Add to Cart</button>
         </div>
       </article>
+      <article class="product-card" data-category="Eyewear" data-price="1999">
+        <div class="product-card__image-wrap">
+          
+          <button type="button" class="btn-wishlist" aria-label="Add Noir Luxe Sunglasses to wishlist">
+            <svg viewBox="0 0 24 24" class="icon" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c2 0 3.4 1.1 4.2 2.4C10.8 6.1 12.2 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"></path>
+            </svg>
+          </button>
+          <img src="https://i.pinimg.com/736x/68/08/d7/6808d70d153dd049668aa080466067ca.jpg" alt="Noir luxe sunglasses" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Burgundy Mini Shoulder Bag</h3>
+          <p class="product-card__price">₹4,999</p>
+          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+      <article class="product-card" data-category="Eyewear" data-price="1999">
+        <div class="product-card__image-wrap">
+          
+          <button type="button" class="btn-wishlist" aria-label="Add Noir Luxe Sunglasses to wishlist">
+            <svg viewBox="0 0 24 24" class="icon" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c2 0 3.4 1.1 4.2 2.4C10.8 6.1 12.2 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"></path>
+            </svg>
+          </button>
+          <img src="https://i.pinimg.com/736x/0a/fb/5a/0afb5a76e000cd88df48e771f64b5a23.jpg" alt="Noir luxe sunglasses" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Gold Pearl Watch set</h3>
+          <p class="product-card__price">₹2,999</p>
+          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+      <article class="product-card" data-category="Eyewear" data-price="1999">
+        <div class="product-card__image-wrap">
+          
+          <button type="button" class="btn-wishlist" aria-label="Add Noir Luxe Sunglasses to wishlist">
+            <svg viewBox="0 0 24 24" class="icon" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c2 0 3.4 1.1 4.2 2.4C10.8 6.1 12.2 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"></path>
+            </svg>
+          </button>
+          <img src="https://i.pinimg.com/736x/27/ab/d6/27abd618ab5b636e721ae0965f995fbb.jpg" alt="Noir luxe sunglasses" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Gold Charm Anklet</h3>
+          <p class="product-card__price">₹999</p>
+          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="Eyewear" data-price="1999">
+        <div class="product-card__image-wrap">
+          
+          <button type="button" class="btn-wishlist" aria-label="Add Noir Luxe Sunglasses to wishlist">
+            <svg viewBox="0 0 24 24" class="icon" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c2 0 3.4 1.1 4.2 2.4C10.8 6.1 12.2 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"></path>
+            </svg>
+          </button>
+          <img src="https://i.pinimg.com/736x/20/47/6f/20476f0fa6acae4bd4856484c4155cf2.jpg" alt="Noir luxe sunglasses" class="product-card__image" loading="lazy">
+        </div>
+        <div class="product-card__info">
+          <h3 class="product-card__name">Floral Pearl Clutcher</h3>
+          <p class="product-card__price">₹899</p>
+          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <button type="button" class="btn-add-cart">Add to Cart</button>
+        </div>
+      </article>
 
       <article class="product-card" data-category="Jewellery" data-price="1799">
         <div class="product-card__image-wrap">
@@ -163,9 +209,9 @@
         </div>
         <div class="product-card__info">
           <h3 class="product-card__name">Celeste Heart Layered Necklace</h3>
-          <p class="product-card__price">₹1,799</p>
-          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
-            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          <p class="product-card__price">₹699</p>
+          <div class="star-rating" aria-label="Rated 4 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span>
           </div>
           <button type="button" class="btn-add-cart">Add to Cart</button>
         </div>
@@ -197,11 +243,11 @@
               <path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c2 0 3.4 1.1 4.2 2.4C10.8 6.1 12.2 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"></path>
             </svg>
           </button>
-          <img src="https://i.pinimg.com/736x/c7/33/6f/c7336fc3035e39de95ac4afdd8ce5042.jpg" alt="Noir luxe sunglasses" class="product-card__image" loading="lazy">
+          <img src="https://i.pinimg.com/736x/4f/61/bd/4f61bdd1545cc6475b899d407a676a05.jpg" alt="Noir luxe sunglasses" class="product-card__image" loading="lazy">
         </div>
         <div class="product-card__info">
-          <h3 class="product-card__name">Vintage Charm Waist Belt</h3>
-          <p class="product-card__price">₹1,799</p>
+          <h3 class="product-card__name">Vintage Charm Black Sunglasses</h3>
+          <p class="product-card__price">₹1,999</p>
           <div class="star-rating" aria-label="Rated 5 out of 5 stars">
             <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
           </div>
@@ -216,11 +262,11 @@
               <path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c2 0 3.4 1.1 4.2 2.4C10.8 6.1 12.2 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"></path>
             </svg>
           </button>
-          <img src="https://i.pinimg.com/736x/94/51/78/945178a3b9e06b05235fe3b961b7a20d.jpg" alt="Noir luxe sunglasses" class="product-card__image" loading="lazy">
+          <img src="https://i.pinimg.com/736x/b7/50/e5/b750e5a680fbdda62bf4608f261cb906.jpg" alt="Noir luxe sunglasses" class="product-card__image" loading="lazy">
         </div>
         <div class="product-card__info">
-          <h3 class="product-card__name">Coral Mirage Handbag</h3>
-          <p class="product-card__price">₹3,299</p>
+          <h3 class="product-card__name">Royal Jhumka Drop Earrings</h3>
+          <p class="product-card__price">₹3,499</p>
           <div class="star-rating" aria-label="Rated 5 out of 5 stars">
             <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
           </div>
@@ -241,7 +287,7 @@
           <h3 class="product-card__name">Golden Bloom Statement Ring</h3>
           <p class="product-card__price">₹899</p>
           <div class="star-rating" aria-label="Rated 5 out of 5 stars">
-            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span>
           </div>
           <button type="button" class="btn-add-cart">Add to Cart</button>
         </div>
@@ -254,11 +300,11 @@
               <path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c2 0 3.4 1.1 4.2 2.4C10.8 6.1 12.2 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"></path>
             </svg>
           </button>
-          <img src="https://i.pinimg.com/1200x/91/2b/33/912b33ac01da3102e14e78861a8334c0.jpg" alt="Noir luxe sunglasses" class="product-card__image" loading="lazy">
+          <img src="https://i.pinimg.com/736x/02/cf/8f/02cf8f1fe417a9a9e61f46622a0d399a.jpg" alt="Noir luxe sunglasses" class="product-card__image" loading="lazy">
         </div>
         <div class="product-card__info">
-          <h3 class="product-card__name">Midnight Blue Luxe Bangle Set</h3>
-          <p class="product-card__price">₹1,699</p>
+          <h3 class="product-card__name">Ethnic Bangle Set</h3>
+          <p class="product-card__price">₹1,999</p>
           <div class="star-rating" aria-label="Rated 5 out of 5 stars">
             <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
           </div>
@@ -273,11 +319,11 @@
               <path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c2 0 3.4 1.1 4.2 2.4C10.8 6.1 12.2 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"></path>
             </svg>
           </button>
-          <img src="https://i.pinimg.com/1200x/1c/5f/0e/1c5f0e65a9c3fa612d747f4f54a43e3d.jpg" alt="Noir luxe sunglasses" class="product-card__image" loading="lazy">
+          <img src="https://i.pinimg.com/736x/08/ce/ba/08ceba9ff7a7661d224fc0d15970b5b2.jpg" alt="Noir luxe sunglasses" class="product-card__image" loading="lazy">
         </div>
         <div class="product-card__info">
-          <h3 class="product-card__name">Café Luxe Cuff Bracelet</h3>
-          <p class="product-card__price">₹1,299</p>
+          <h3 class="product-card__name">Royal Gold Bracelet Set</h3>
+          <p class="product-card__price">₹2,399</p>
           <div class="star-rating" aria-label="Rated 5 out of 5 stars">
             <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
           </div>
@@ -292,11 +338,11 @@
               <path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c2 0 3.4 1.1 4.2 2.4C10.8 6.1 12.2 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"></path>
             </svg>
           </button>
-          <img src="https://i.pinimg.com/1200x/8c/f1/90/8cf1903b2e2558a2038d7f7f768513fb.jpg" alt="Noir luxe sunglasses" class="product-card__image" loading="lazy">
+          <img src="https://i.pinimg.com/1200x/7b/26/17/7b26175ce38d9e03d7379e2b7d85aa0e.jpg" alt="Noir luxe sunglasses" class="product-card__image" loading="lazy">
         </div>
         <div class="product-card__info">
-          <h3 class="product-card__name">Noir Beaded Crescent Bag</h3>
-          <p class="product-card__price">₹2,499</p>
+          <h3 class="product-card__name">Coach handbag</h3>
+          <p class="product-card__price">₹5,499</p>
           <div class="star-rating" aria-label="Rated 5 out of 5 stars">
             <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
           </div>
@@ -316,8 +362,8 @@
         <div class="product-card__info">
           <h3 class="product-card__name">Golden Pearl Earrings</h3>
           <p class="product-card__price">₹1,399</p>
-          <div class="star-rating" aria-label="Rated 5 out of 5 stars">
-            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          <div class="star-rating" aria-label="Rated 4 out of 5 stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span>
           </div>
           <button type="button" class="btn-add-cart">Add to Cart</button>
         </div>
@@ -331,11 +377,11 @@
               <path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.3 5 5.8 5c2 0 3.4 1.1 4.2 2.4C10.8 6.1 12.2 5 14.2 5c3.5 0 5.3 3.4 3.8 6.9C19.5 16.4 12 21 12 21z"></path>
             </svg>
           </button>
-          <img src="https://i.pinimg.com/736x/a5/55/dc/a555dc7012e5a30f677c4a637dcab702.jpg" alt="Gilded leather belt" class="product-card__image" loading="lazy">
+          <img src="https://i.pinimg.com/736x/ec/01/1f/ec011f4d3ec78874dba155234598eca2.jpg" alt="Gilded leather belt" class="product-card__image" loading="lazy">
         </div>
         <div class="product-card__info">
-          <h3 class="product-card__name">Amber Shoulder Bag</h3>
-          <p class="product-card__price">₹2,399</p>
+          <h3 class="product-card__name">White grace handbag</h3>
+          <p class="product-card__price">₹4,399</p>
           <div class="star-rating" aria-label="Rated 5 out of 5 stars">
             <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
           </div>
@@ -344,6 +390,19 @@
       </article>
 
     </div>
+
+      <section class="accessories-quote" aria-label="Brand quote">
+    <div class="accessories-quote__inner">
+      <span class="accessories-quote__mark">"</span>
+      <p class="accessories-quote__text">
+        The right piece isn't an afterthought — it's the earring that catches light, the bag that finishes the story, the detail everyone remembers.
+      </p>
+      <span class="accessories-quote__divider"></span>
+      <p class="accessories-quote__attribution">The ARIA Accessories Edit</p>
+    </div>
+  </section>
+
+  
     <p class="filter-empty" data-filter-empty hidden>No products match this filter — try “All” or a different category.</p>
   </section>
   <footer class="site-footer">
@@ -441,5 +500,7 @@
   </footer>
   <div class="toast" data-toast></div>
   <script src="site.js"></script>
+  <script src="wishlist.js"></script>
+<script src="search.js"></script>
 </body>
 </html>
