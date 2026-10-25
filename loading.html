@@ -3,21 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <!-- 4.5 seconds baad automatic index.html par redirect ho jayega -->
   <meta http-equiv="refresh" content="4.5;url=index.html">
-
   <title>ARIA — Loading...</title>
-
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-color: #222222;
+      --bg-color: #222222;       /* Luxury Dark Background */
       --text-color: #FFFFFF;
-      --gold-color: #f57c7ce2;
+      --gold-color: #f57c7ce2;    /* Home page wala same theme color */
       --track-color: rgba(255, 255, 255, 0.1);
       --font-logo: 'Playfair Display', serif;
       --font-body: 'Poppins', sans-serif;
@@ -38,23 +36,9 @@
       justify-content: center;
       font-family: var(--font-body);
       overflow: hidden;
-      position: relative;
-    }
-
-    /* Background image */
-    body::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: url("loading.png") center / cover no-repeat;
-      opacity: 0.45;
-      filter: brightness(0.65);
-      z-index: 0;
     }
 
     .loader-container {
-      position: relative;
-      z-index: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -70,7 +54,7 @@
       letter-spacing: 0.25em;
       color: var(--text-color);
       margin-bottom: 8px;
-      text-indent: 0.25em;
+      text-indent: 0.25em; /* Perfectly align centered text with letter-spacing */
     }
 
     .brand-subtext {
@@ -81,7 +65,7 @@
       margin-bottom: 40px;
     }
 
-    /* Progress Bar */
+    /* Progress Bar Outer Track */
     .progress-track {
       width: 260px;
       height: 3px;
@@ -91,6 +75,7 @@
       position: relative;
     }
 
+    /* Progress Bar Fill Animation (4.5 Seconds) */
     .progress-fill {
       height: 100%;
       width: 0%;
@@ -108,38 +93,34 @@
       text-transform: uppercase;
     }
 
-    /* Progress Animation */
+    /* Keyframe Animation */
     @keyframes fillProgress {
       0% {
         width: 0%;
       }
-
       50% {
         width: 65%;
       }
-
       80% {
         width: 85%;
       }
-
       100% {
         width: 100%;
       }
     }
   </style>
 </head>
-
 <body>
 
   <div class="loader-container">
     <h1 class="brand-logo">ARIA</h1>
-
     <p class="brand-subtext">Luxury Collection</p>
-
+    
+    <!-- Loading Bar -->
     <div class="progress-track">
       <div class="progress-fill"></div>
     </div>
-
+    
     <p class="loading-status">Preparing Your Experience...</p>
   </div>
 
